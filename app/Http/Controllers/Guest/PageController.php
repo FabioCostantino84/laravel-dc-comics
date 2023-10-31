@@ -10,4 +10,8 @@ class PageController extends Controller
     function index(){
         return view('welcome');
     }
+
+    function about(){
+        return about('about');
+    }
 }
