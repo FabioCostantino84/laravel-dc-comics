@@ -9,14 +9,16 @@ use App\Models\Comics;
 class PageController extends Controller
 {
     function index(){
-        return view('welcome');
+        $comics = Comics::all();
+        return view('welcome', compact('comics'));
+
     }
 
-    function about(){
+    /* function about(){
         return about('about');
     }
 
     function comics(){
         return comics('comics');
-    }
+    } */
 }

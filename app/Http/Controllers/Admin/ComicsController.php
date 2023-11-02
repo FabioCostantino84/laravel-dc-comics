@@ -6,6 +6,7 @@ use App\Models\Comics;
 use Illuminate\Http\Request;
 use App\http\Controllers\Controller;
 
+
 class ComicsController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        return view('admin.index', ['comics' => Comics::all()]);
+        $comics = Comics::all();
+        return view('welcome', compact('comics'));
     }
 
     /**

@@ -15,18 +15,18 @@ use App\http\Controllers\Admin\ComicsController;
 |
 */
 
-/* Route::get('/', [PageController::class, 'index'])->name('home'); */
+Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('about', [PageController::class, 'about'])->name('about');
 
 Route::get('comics', [PageController::class, 'comics'])->name('guests.comics');
 
-Route::get('/', function(){
+/* Route::get('/', function(){
     return view('admin.index');
-});
+}); */
 
 
-Route::resource('admin/comics', ComicsController::class);
+/* Route::resource('admin/comics', ComicsController::class); */
 
 
 /* Route::get('/comics', function () {
