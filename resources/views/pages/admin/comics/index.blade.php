@@ -2,18 +2,27 @@
 
 @section('main_content')
     
-<div class="container">
+<div>
     <h1>All comics</h1>
 
     <div class="container">
         <div class="row">
+            @if(session('messaggio'))
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>Congratulazioni!</strong> {{session('messaggio')}}
+            </div>
+    
+            @endif
             <div class="col d-flex flex-wrap">
+
                 @foreach ($comics as $comic)
-                <a href="{{route('comics.show', $comic->id)}}" class="card w-25 m-2 p-5">
+                <a href="{{route('comics.show', $comic->id)}}" class="card w-25 m-2 p-5 text-decoration-none">
                     <form action="{{route("comics.destroy", [$comic->id])}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input type="submit">
+                        <button class="bg-danger mb-3 border-0" type="submit">Cancella</button>
                     </form>
 
                     
@@ -50,11 +59,6 @@
             </div>
         </div>
     </div>
-    
-   
-
-        
-
-    
+       
 </div>
 @endsection
