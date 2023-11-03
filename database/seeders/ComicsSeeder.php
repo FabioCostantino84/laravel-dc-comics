@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\Comics;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -227,18 +228,22 @@ class ComicsSeeder extends Seeder
             ],
         ];
 
-        foreach ($comics as $comic){
+        foreach ($comics as $comic) {
+
             $booksList = new Comics();
-            $booksList->title = $comic['title'];
-            $booksList->description = $comic['description'];
-            $booksList->thumb = $comic['thumb'];
-            $booksList->price = $comic['price'];
-            $booksList->series = $comic['series'];
-            $booksList->sale_date = $comic['sale_date'];
-            $booksList->type = $comic['type'];
-            $booksList->artists = implode(',', $comic['artists']);
-            $booksList->writers = implode(',', $comic['artists']); // implode trasformiamo array in stringa
+            $booksList ->title = $comic['title'];
+            $booksList ->description = $comic['description'];
+            $booksList ->thumb = $comic['thumb'];
+            $booksList ->price = $comic['price'];
+            $booksList ->series = $comic['series'];
+            $booksList ->sale_date = $comic['sale_date'];
+            $booksList ->type = $comic['type'];
+            $booksList ->artists = implode(', ', $comic['artists']); //trasformo il mio array in una stringa con implode
+            $booksList ->writers = implode($comic['writers']);
             $booksList->save();
+
+
+
         }
     }
 }

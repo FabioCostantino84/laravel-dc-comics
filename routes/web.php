@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\Admin\ComicsController;
+
+//Vado a importare i file del PageController e del AdminController
+
+use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +18,23 @@ use App\http\Controllers\Admin\ComicsController;
 |
 */
 
+//Con le rotte, vado a richiamare il file (PageController o AdminController in questo caso) e chiamiamo la funzione "index"
+
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('about', [PageController::class, 'about'])->name('about');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
-Route::get('comics', [PageController::class, 'comics'])->name('guests.comics');
-
-/* Route::get('/', function(){
-    return view('admin.index');
-}); */
+//chiamo tutte le funzioni del admin controller
+Route::resource('admin/comics', AdminController::class);
 
 
-/* Route::resource('admin/comics', ComicsController::class); */
 
 
-/* Route::get('/comics', function () {
-    $comics = \App\Models\Comics::all();
-    return view('comics', compact('comics'));
-}); */
+
+// Route::get('/create', [AdminController::class, 'create'])->name('create');
+
+// Route::get('/store', [AdminController::class, 'store'])->name('store');
+
+
+
+

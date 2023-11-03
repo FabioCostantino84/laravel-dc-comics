@@ -8,17 +8,10 @@ use App\Models\Comics;
 
 class PageController extends Controller
 {
-    function index(){
-        $comics = Comics::all();
-        return view('welcome', compact('comics'));
+    function index() {
 
+        return view('pages.admin.comics.index', ['comics' => Comics::all()]);
     }
-
-    /* function about(){
-        return about('about');
-    }
-
-    function comics(){
-        return comics('comics');
-    } */
 }
+
+
