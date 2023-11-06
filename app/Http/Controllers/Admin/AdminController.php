@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Comics;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreComicsRequest;
 use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
@@ -33,7 +34,7 @@ class AdminController extends Controller
     /**
      * prendo i dati scritti nel form del create e li aggiungo al database
      */
-    public function store(Request $request)
+    public function store(StoreComicsRequest $request)
     {
         
         $newComic = new Comics();
@@ -57,6 +58,8 @@ class AdminController extends Controller
         $newComic->save(); 
 
         //diciamo di passarceli alla pagina index
+
+        $validated = $request->validated();
 
 
 
