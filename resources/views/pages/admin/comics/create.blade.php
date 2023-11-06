@@ -19,7 +19,7 @@
         
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <input type="text" class="form-control @error ('title') is-invalid @enderror" name="title" id="title" aria-describedby="helpId" placeholder="scrivi una descrizione">
             <small id="titleHelper" class="form-text text-muted">Scrivi una descrizione</small>
         </div>
 
