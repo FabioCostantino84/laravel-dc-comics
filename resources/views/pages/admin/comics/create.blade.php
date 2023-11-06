@@ -31,20 +31,20 @@
 
         <div class="mb-3">
             <label for="thumb" class="form-label">Choose file</label>
-            <input type="file" class="form-control" name="thumb" id="thumb" placeholder="" aria-describedby="thumb_helper">
+            <input type="file" class="form-control @error ('title') is-invalid @enderror" name="thumb" id="thumb" placeholder="" aria-describedby="thumb_helper">
             <div id="thumb_helper" class="form-text">Inserisci una immagine</div>
         </div>
 
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="scrivi una descrizione">
+            <input type="text" class="form-control @error ('title') is-invalid @enderror" name="price" id="price" aria-describedby="helpId" placeholder="scrivi una descrizione">
             <small id="priceHelper" class="form-text text-muted">Scrivi il prezzo</small>
         </div>
 
         <div class="mb-3">
             <label for="series" class="form-label">Serie</label>
             <input type="text" class="form-control" name="series" id="series" aria-describedby="helpId" placeholder="scrivi una descrizione">
-            <small id="seriesHelper" class="form-text text-muted">Scrivi il prezzo</small>
+            <small id="seriesHelper" class="form-text text-muted">Scrivi la serie</small>
         </div>
 
         <div class="mb-3">

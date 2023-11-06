@@ -23,6 +23,8 @@ class StoreComicsRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:50',
+            'price' => 'required',
+            'thumb' => 'nullable|image|max:70',
         ];
     }
 }
