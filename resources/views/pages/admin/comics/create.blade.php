@@ -7,6 +7,15 @@
 
         <a class="btn btn-secondary text-white my-5 " href="{{ route('comics.index') }}" role="button">Torna indietro</a>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         {{-- al submit del form faccio partire la funzione store --}}
 
@@ -22,8 +31,11 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                    id="title" aria-describedby="helpId" placeholder="scrivi una descrizione" value="{{ old('title') }}">
+                    id="title" aria-describedby="helpId" placeholder="scrivi una descrizione"
+                    value="{{ old('title') }}">
                 <small id="titleHelper" class="form-text text-muted">Scrivi una descrizione</small>
+
+                
             </div>
 
             <div class="mb-3">

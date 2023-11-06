@@ -27,4 +27,15 @@ class StoreComicsRequest extends FormRequest
             'thumb' => 'nullable|image|max:100',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => '👉 Inserisci un titolo per il nuovo Comic',
+            'title.min:3' => '👉 Inserisci un titolo di almeno 3 caratteri per il nuovo Comic',
+            'title.max:50' => '👉 Inserisci un titolo di massimo 50 caratteri per il nuovo Comic',
+            'price.required' => '👉 Inserisci il prezzo del nuovo Comic',
+            'thumb.max:100' => '👉 La tua immagine inserita del nuovo Comic e troppo grande, assicurati che sia inferiore a 100Kb',
+        ];
+    }
 }
