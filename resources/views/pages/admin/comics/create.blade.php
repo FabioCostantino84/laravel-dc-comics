@@ -22,7 +22,7 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                    id="title" aria-describedby="helpId" placeholder="scrivi una descrizione">
+                    id="title" aria-describedby="helpId" placeholder="scrivi una descrizione" value="{{ old('title') }}">
                 <small id="titleHelper" class="form-text text-muted">Scrivi una descrizione</small>
             </div>
 
